@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Title from "./components/Title";
-import Pokemon from "./components/Pokemon";
+import Pokemon from "./components/Pokemon/Pokemon";
 
 function App() {
   const pokemons = [
@@ -36,18 +36,22 @@ function App() {
   ];
   return (
     <div className="App">
-      <main>
+      <main className="container my-5">
         <Title content="Some example title" />
-        {pokemons.map((pokemon, index) => (
-          <Pokemon
-            key={index}
-            name={pokemon.name}
-            weight={pokemon.weight}
-            awesome={pokemon.awesome}
-            terrifying={pokemon.terrifying}
-            abilities={pokemon.abilities}
-          />
-        ))}
+        <div className="row">
+          {pokemons.map((pokemon, index) => (
+            <div className="col-md-6 col-lg-4">
+              <Pokemon
+                key={index}
+                name={pokemon.name}
+                weight={pokemon.weight}
+                awesome={pokemon.awesome}
+                terrifying={pokemon.terrifying}
+                abilities={pokemon.abilities}
+              />
+            </div>
+          ))}
+        </div>
       </main>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
